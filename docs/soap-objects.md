@@ -43,7 +43,10 @@
 
 | Object | WSProxy Methods | Key Properties | Notes |
 |--------|----------------|----------------|-------|
-| `Automation` | retrieve, perform | `Name`, `CustomerKey`, `ObjectID`, `ProgramID`, `Status`, `IsActive`, `CategoryID`, `LastRunTime`, `ScheduledTime`, `AutomationType` | Use `start` action with perform |
+| `Automation` | create, retrieve, perform | `Name`, `CustomerKey`, `ObjectID`, `ProgramID`, `Status`, `IsActive`, `CategoryID`, `LastRunTime`, `ScheduledTime`, `AutomationType` | `setClientId` required for create; use `start` action with perform |
+| `QueryDefinition` | create, retrieve, update, delete | `Name`, `CustomerKey`, `ObjectID`, `QueryText`, `TargetType`, `TargetUpdateType`, `DataExtensionTarget`, `CategoryID`, `Status` | SQL Query Activity |
+| `ImportDefinition` | create, retrieve | `Name`, `CustomerKey`, `ObjectID`, `UpdateType`, `DestinationObject`, `SourceObject`, `FieldMappingType` | Import Activity |
+| `ScriptActivity` | create | `Name`, `CustomerKey`, `Script`, `CategoryID` | SSJS Script Activity |
 | `Activity` | retrieve | — | Docs say `AutomationActivity` but use `Activity` |
 | `ActivityInstance` | retrieve | — | Docs say `AutomationActivityInstance` but use `ActivityInstance` |
 

@@ -15,7 +15,7 @@ Paste into a **CloudPage** or **Script Activity** to run.
 | `triggered-sends.ssjs` | TriggeredSendDefinition, TriggeredSend | createTSD, getTSDs, getTSD, startTSD, stopTSD, sendTriggeredEmail, sendTriggeredEmailBatch | Ready |
 | `emails.ssjs` | Email, EmailContentCheck | createEmail, getEmailByID, getEmailByName, getAllEmails, updateEmail, deleteEmail, checkEmailContent | Ready |
 | `tracking-events.ssjs` | SentEvent, OpenEvent, ClickEvent, BounceEvent, UnsubEvent, NotSentEvent | getSentEvents, getOpenEvents, getClickEvents, getBounceEvents, getUnsubEvents, getNotSentEvents (each with ByJob, ByDate variants), getHardBounces, getClickEventsByURL, getJobTrackingReport, storeEventsToDE | Ready |
-| `automations.ssjs` | Automation, Activity | getAllAutomations, getAutomationsByStatus, getRunningAutomations, getScheduledAutomations, getErroredAutomations, getAutomationByName, getAutomationByKey, startAutomation, startAutomationByName, getAutomationSummary, getActivities | Ready |
+| `automations.ssjs` | Automation, QueryDefinition, ImportDefinition, ScriptActivity, Activity | **Create:** createAutomation, createQueryActivity, createQueryActivitiesBulk, createImportDefinition, createScriptActivity. **Retrieve:** getAllAutomations, getAutomationsByStatus, getRunningAutomations, getScheduledAutomations, getErroredAutomations, getAutomationByName, getAutomationByKey, getQueryActivities, getQueryActivityByName, getImportDefinitions, getActivities, getAutomationSummary. **Actions:** startAutomation, startAutomationByName, updateQueryActivity, deleteQueryActivity | Ready |
 | `log-unsub-event.ssjs` | (Execute: LogUnsubEvent) | oneClickUnsub, logUnsubEvent, handleUnsubPage, batchUnsub | Ready |
 | `utilities.ssjs` | (Any) | retrieveAll, retrieveWithLimit, describeObject, safeCall, processBatch, retrieveFromBU, createInBU, retrieveAllAccounts, simpleFilter, complexFilter, dateFilter, formatDERows, writeJSON, writeTable | Ready |
 
@@ -41,6 +41,9 @@ Paste into a **CloudPage** or **Script Activity** to run.
 | UnsubEvent | tracking-events.ssjs |
 | NotSentEvent | tracking-events.ssjs |
 | Automation | automations.ssjs |
+| QueryDefinition | automations.ssjs |
+| ImportDefinition | automations.ssjs |
+| ScriptActivity | automations.ssjs |
 | Activity | automations.ssjs |
 | LogUnsubEvent (execute) | log-unsub-event.ssjs |
 
@@ -48,7 +51,7 @@ Paste into a **CloudPage** or **Script Activity** to run.
 
 | Method | Used In |
 |--------|---------|
-| `createItem()` | data-extensions, folders, subscribers, lists, triggered-sends, emails |
+| `createItem()` | data-extensions, folders, subscribers, lists, triggered-sends, emails, automations |
 | `createBatch()` | data-extensions, subscribers, tracking-events |
 | `updateItem()` | data-extensions, folders, subscribers, lists, emails |
 | `updateBatch()` | data-extensions |
