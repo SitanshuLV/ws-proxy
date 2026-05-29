@@ -26,6 +26,7 @@ Claude's training data on SFMC WSProxy is incomplete. **Always verify against th
 - `AutomationActivity` and `AutomationActivityInstance` must be referenced as `Activity` and `ActivityInstance`
 - `isNull`/`isNotNull` filters still require a `Value` property (use `" "`)
 - `SendClassification` must match the `SenderProfile` in TriggeredSendDefinitions
+- `describe()` has NO top-level `Status` — properties are in `Results[0].Properties`, not `Results`
 - `configure()` method is documented but may not work — avoid unless tested
 
 ## Trusted Documentation Sources

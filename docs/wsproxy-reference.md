@@ -333,14 +333,16 @@ var result = api.describe(objectType);
 |-----------|------|----------|-------------|
 | `objectType` | String | Yes | SOAP object name |
 
+**Important:** `describe()` does NOT return a top-level `Status` property like other methods. Check `Results` existence instead. Properties are nested under `Results[0].Properties`, not directly under `Results`.
+
 #### Discover Retrievable Properties
 
 ```javascript
 var desc = api.describe("DataExtension");
-var metadata = desc.Results;
-for (var i = 0; i < metadata.length; i++) {
-    if (metadata[i].IsRetrievable) {
-        Write(metadata[i].Name + "<br>");
+var props = desc.Results[0].Properties;  // Properties nested inside Results[0]
+for (var i = 0; i < props.length; i++) {
+    if (props[i].IsRetrievable) {
+        Write(props[i].Name + " (" + props[i].DataType + ")<br>");
     }
 }
 ```

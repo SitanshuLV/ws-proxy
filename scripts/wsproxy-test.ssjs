@@ -173,12 +173,13 @@ try {
        ======================================================== */
     res = api.describe("DataExtension");
     var retrievableCount = 0;
-    if (res.Results) {
-        for (var d = 0; d < res.Results.length; d++) {
-            if (res.Results[d].IsRetrievable) retrievableCount++;
-        }
+    var descProps = (res.Results && res.Results[0] && res.Results[0].Properties) ? res.Results[0].Properties : [];
+    for (var d = 0; d < descProps.length; d++) {
+        if (descProps[d].IsRetrievable) retrievableCount++;
     }
-    logResult("9. Describe DataExtension (" + retrievableCount + " retrievable props)", res);
+    // describe() has no top-level Status — check Results existence instead
+    var descStatus = (res.Results && res.Results.length > 0) ? "OK" : "Error";
+    log.push("[" + descStatus + "] 9. Describe DataExtension (" + retrievableCount + " retrievable / " + descProps.length + " total props)");
 
     /* ========================================================
        STEP 10: Retrieve DE field definitions
